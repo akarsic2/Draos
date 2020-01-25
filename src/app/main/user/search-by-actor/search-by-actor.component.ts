@@ -3,6 +3,7 @@ import { Actor } from 'src/app/models/actor.model';
 import { ToastrService } from 'ngx-toastr';
 import { AddMovieService } from '../../admin/add-movie/add-movie.service';
 import { SearchByActorService } from './search-by-actor.service';
+import { Movie } from 'src/app/models/movie.model';
 
 @Component({
   selector: 'app-search-by-actor',
@@ -13,7 +14,7 @@ export class SearchByActorComponent implements OnInit {
 
   actors: Array<Actor> = new Array();
   selectedActor: number;
-  movies: Array<Actor> = new Array();
+  movies: Movie[] = new Array();
 
   constructor(private _actorService: SearchByActorService,
               private _movieService: AddMovieService,

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Actor } from '../../../models/actor.model';
+import { of } from 'rxjs';
+import { MockData } from 'src/app/mock.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +14,12 @@ export class AddActorService {
   constructor(private http: HttpClient) { }
 
   getActors(){
-    return this.http.get<Actor[]>( this.apiURL + '/glumci');
+    return of(MockData.actors);
+    //return this.http.get<Actor[]>( this.apiURL + '/glumci');
   }
 
   addActor(actor: Actor){
-    
-    return this.http.post<any>(this.apiURL + '/add', actor);
+    return of(actor);
+    //return this.http.post<any>(this.apiURL + '/add', actor);
   }
 }

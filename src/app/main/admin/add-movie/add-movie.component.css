@@ -60,6 +60,6 @@
     height: 0px;
 }
 
-.cuppa-dropdown .selected-list .c-btn{
-    border: 1px solid gray !important;
+:host /deep/ .cuppa-dropdown .selected-list .c-btn{
+    border: 1px solid #ced4da !important;
 }

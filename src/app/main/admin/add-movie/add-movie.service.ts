@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Movie } from '../../../models/movie.model';
 import { Genre } from 'src/app/models/genre.model';
 import { Actor } from 'src/app/models/actor.model';
+import { MockData } from 'src/app/mock.model';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,21 +17,27 @@ export class AddMovieService {
 
   constructor(private http: HttpClient) { }
 
-  addMovie(movie: Movie){
-    var headers={
-      headers: new HttpHeaders({
-          'Content-Type': 'application/json'
-      })
-  }
-    return this.http.post<any>(this.apiURL + '/add', JSON.stringify(movie), headers);
+  addMovie(movie: Movie, genres: Genre[], actors: Actor[]){
+    movie.zanrovi = genres;
+    movie.glumci = actors;
+    MockData.movies.push(movie);
+    return of(null);
+    // var headers={
+    //   headers: new HttpHeaders({
+    //       'Content-Type': 'application/json'
+    //   })
+    // }
+    // return this.http.post<any>(this.apiURL + '/add', JSON.stringify(movie), headers);
   }
 
   getGenres(){
-    return this.http.get<Genre[]>( this.apiURLGenres + '/zanrovi');
+    return of(MockData.genres);
+    //return this.http.get<Genre[]>( this.apiURLGenres + '/zanrovi');
   }
 
   getActors(){
-    return this.http.get<Actor[]>(this.apiURLActors + '/glumci');
+    return of(MockData.actors);
+    //return this.http.get<Actor[]>(this.apiURLActors + '/glumci');
   }
 
 

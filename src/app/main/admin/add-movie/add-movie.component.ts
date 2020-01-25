@@ -59,24 +59,26 @@ export class AddMovieComponent implements OnInit {
   addMovie(form: any){
     this.isSubmitTriggered = true;
     if (form.form.valid && this.isRegexForTrailerValid()){
-      this._movieService.addMovie(this.movie).subscribe(res => {
+      console.log(this.selectedItemsActors);
+      this._movieService.addMovie(this.movie, this.dropdownListGenres, this.dropdownListActors).subscribe(res => {
         //res.id
-        this._movieService.connectGenresToMovie(res.id, res.movieName, this.selectedItemsGenres).subscribe(res1 => {
-          this.movie = new Movie();
-          this.isSubmitTriggered = false;
-          this.selectedItemsGenres = [];
-          this._movieService.connectActorsToMovie(res.id, res.movieName, this.selectedItemsActors).subscribe(res2 => {
-            this.selectedItemsActors = [];
-            this.toastr.success("Movie successfully added.", "New movie!");
-          }, error => {
-            this.toastr.error("Something went wrong while trying to add actors to a movie.", "Error!");
-          }
-          )
-        },
-        error => {
-          this.toastr.error("Something went wrong while trying to add genres to a movie.", "Error!");
-        });
-
+        // this._movieService.connectGenresToMovie(res.id, res.movieName, this.selectedItemsGenres).subscribe(res1 => {
+        //   this.movie = new Movie();
+        //   this.isSubmitTriggered = false;
+        //   this.selectedItemsGenres = [];
+        //   this._movieService.connectActorsToMovie(res.id, res.movieName, this.selectedItemsActors).subscribe(res2 => {
+        //     this.selectedItemsActors = [];
+        //     this.toastr.success("Movie successfully added.", "New movie!");
+        //   }, error => {
+        //     this.toastr.error("Something went wrong while trying to add actors to a movie.", "Error!");
+        //   }
+        //   )
+        // },
+        // error => {
+        //   this.toastr.error("Something went wrong while trying to add genres to a movie.", "Error!");
+        // });
+        
+        this.toastr.success("Movie successfully added.", "New movie!");
         
       }, error => {
         this.toastr.error("Something went wrong while trying to add movie.", "Error!");

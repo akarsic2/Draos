@@ -51,13 +51,17 @@
     height: 500px;
     overflow-y: scroll;
 }
-
+/* 
 .list-group-item {
     width: 200px;
+} */
+
+ul{
+    margin-top: 20px;
 }
 
 .selected {
-    background-color: gray;
+    background-color: #c3cfd7 !important;
 }
 
 .margl {
@@ -71,4 +75,17 @@
 
 .add-movie-button {
     margin-bottom: 14px;
+}
+
+.genre-label{
+    float: right;
+    padding-top: 5px;
+}
+
+.main-class{
+    margin-top: 20px;
+}
+
+.btn.btn-light{
+    width:50%;
 }

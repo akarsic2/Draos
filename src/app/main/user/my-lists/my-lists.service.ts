@@ -5,6 +5,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { Movie } from 'src/app/models/movie.model';
 import { MovieId } from 'src/app/models/movieId.model';
+import { of } from 'rxjs';
+import { MockData } from 'src/app/mock.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +19,8 @@ export class MyListsService {
   constructor(private http: HttpClient, private cookieService: CookieService) { }
 
   getLists(){
-    return this.http.get<List[]>( this.apiURL + '/userlists/' + this.cookieService.get('userId'));
+    return of(MockData.lists);
+    //return this.http.get<List[]>( this.apiURL + '/userlists/' + this.cookieService.get('userId'));
   }
 
   addList(name: string){  
@@ -26,8 +29,13 @@ export class MyListsService {
     return this.http.post<any>(this.apiURL + '/addList', JSON.stringify(o), {headers:headers});
   }
 
-  getMovies() {
-    return this.http.get<Movie[]>(this.apiMovies + '/movies');
+  getMovies(listId) {
+    var list = MockData.lists.find(x => x.id == listId);
+    if (list == null)
+      return of(null);
+      
+    return of(list.movies);
+    //return this.http.get<Movie[]>(this.apiMovies + '/movies');
   }
 
   getMovieIdsForList(listId) {

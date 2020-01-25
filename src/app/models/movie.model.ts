@@ -1,3 +1,6 @@
+import { Genre } from './genre.model';
+import { Actor } from './actor.model';
+
 export class Movie {
     id: number;
     naziv: string;
@@ -7,4 +10,7 @@ export class Movie {
     producent: string;
     trailer: string;
     slika: string;
+
+    zanrovi: Genre[];
+    glumci: Actor[];
   }

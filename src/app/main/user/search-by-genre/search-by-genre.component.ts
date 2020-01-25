@@ -3,6 +3,7 @@ import { AddGenreService } from '../../admin/add-genre/add-genre.service';
 import { Genre } from 'src/app/models/genre.model';
 import { MovieBasic } from 'src/app/models/movieBasic.model';
 import { ToastrService } from 'ngx-toastr';
+import { Movie } from 'src/app/models/movie.model';
 
 @Component({
   selector: 'app-search-by-genre',
@@ -13,7 +14,7 @@ export class SearchByGenreComponent implements OnInit {
 
   genres: Array<Genre> = new Array();
   selectedGenre: number;
-  movies: Array<MovieBasic> = new Array();
+  movies: Array<Movie> = new Array();
 
   constructor(private _genreService: AddGenreService,
               private toastr: ToastrService) { }

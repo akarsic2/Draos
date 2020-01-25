@@ -33,12 +33,11 @@ export class MyListsComponent implements OnInit {
   ngOnInit() {
     this._listService.getLists().subscribe((res:any) => 
       {
-        if (res.length != 0 )
-          this.lists = res[0].movieLists;
+        this.lists = res;
       }, error => {
         this.toastr.error("Something went wrong while trying to get user's lists.", "Error!");
       });
-      this._listService.getMovies().subscribe((res:any) => 
+      this._listService.getMovies(1).subscribe((res:any) => 
       {
         if (res.length != 0 )
           this.movies = res;
@@ -70,28 +69,27 @@ export class MyListsComponent implements OnInit {
     this.selectedListMovies = [];
     this.selectedListId = listId;
 
-    this._listService.getMovies().subscribe((res:any) => 
+    this._listService.getMovies(listId).subscribe((res:any) => 
       {
-        if (res.length != 0 )
-          this.movies = res;
+          this.selectedListMovies = res;
       }, error => {
         this.toastr.error("Something went wrong while trying to get user's lists.", "Error!");
       });
 
     let moviesIds = [];
 
-    fetch('http://localhost:8084/getmoviesforlist/' + listId)
-      .then(response => {console.log(response); return response.json();})
-      .then(text => {moviesIds = text; console.log(moviesIds);})
-      .then(() => {
-        this.movies.forEach(m => {
-          if (moviesIds.indexOf(m.id) >= 0) {
-            console.log('Ima film:');
-            console.log(m);
-            this.selectedListMovies.push(m);
-          }
-        })
-      });
+    // fetch('http://localhost:8084/getmoviesforlist/' + listId)
+    //   .then(response => {console.log(response); return response.json();})
+    //   .then(text => {moviesIds = text; console.log(moviesIds);})
+    //   .then(() => {
+    //     this.movies.forEach(m => {
+    //       if (moviesIds.indexOf(m.id) >= 0) {
+    //         console.log('Ima film:');
+    //         console.log(m);
+    //         this.selectedListMovies.push(m);
+    //       }
+    //     })
+    //   });
       // .then(() => console.log('Selected lista: '))
       // .then(() => console.log(this.selectedListMovies));
   }
