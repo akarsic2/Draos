@@ -89,3 +89,15 @@ ul{
 .btn.btn-light{
     width:50%;
 }
+
+.additional-data{
+    margin:0;
+}
+
+.additional-data-div{
+    margin-top:4px;
+}
+
+.movies-in-list{
+    padding-top: 37px;
+}

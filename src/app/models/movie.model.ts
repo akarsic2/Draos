@@ -13,4 +13,7 @@ export class Movie {
 
     zanrovi: Genre[];
     glumci: Actor[];
+
+    isExpanded: boolean = false;
+    isSelected: boolean = false;
   }

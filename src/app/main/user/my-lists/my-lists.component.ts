@@ -4,6 +4,7 @@ import { List } from 'src/app/models/list.model';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Movie } from 'src/app/models/movie.model';
+import { MockData } from 'src/app/mock.model';
 
 @Pipe({
   name: 'filter',
@@ -53,14 +54,24 @@ export class MyListsComponent implements OnInit {
       return;
     }
 
-    this._listService.addList(this.newList).subscribe(res => 
-      {
-        this.lists.push(new List(res.id, this.newList));
-        this.newList = '';
-        this.toastr.success("List successfully added.", "New list!");
-      }, error => {
-        this.toastr.error('Something went wrong while trying to add new list.', "Error!");
-      });
+    var latestId: number = MockData.lists[0].id;
+
+    MockData.lists.forEach(element => {
+      if (element.id > latestId)
+        latestId = element.id
+    });
+
+
+    MockData.lists.push(new List(latestId+1, this.newList));
+
+    // this._listService.addList(this.newList).subscribe(res => 
+    //   {
+    //     this.lists.push(new List(res.id, this.newList));
+    //     this.newList = '';
+    //     this.toastr.success("List successfully added.", "New list!");
+    //   }, error => {
+    //     this.toastr.error('Something went wrong while trying to add new list.', "Error!");
+    //   });
   }
 
   openList(listId) {
@@ -72,6 +83,10 @@ export class MyListsComponent implements OnInit {
     this._listService.getMovies(listId).subscribe((res:any) => 
       {
           this.selectedListMovies = res;
+
+          this.selectedListMovies.forEach(element => {
+            element.isExpanded = false;
+          });
       }, error => {
         this.toastr.error("Something went wrong while trying to get user's lists.", "Error!");
       });
@@ -100,5 +115,29 @@ export class MyListsComponent implements OnInit {
   
   addSelectedMovieToList() {
     this._listService.addMovieToList(this.selectedMovieId, this.selectedListId);
+  }
+
+  getAllActors(movieId: number){
+    var movie = MockData.movies.find(x => x.id == movieId);
+
+    var actors: string ="";
+
+    movie.glumci.forEach(actor => {
+      actors+= actor.name + " " + actor.lastName + ", ";
+    });
+
+    return actors.slice(0, actors.length-2);
+  }
+
+  getAllGenres(movieId: number){
+    var movie = MockData.movies.find(x => x.id == movieId);
+
+    var genres: string = "";
+
+    movie.zanrovi.forEach(genre => {
+      genres += genre.zanr + ", ";
+    });
+
+    return genres.slice(0, genres.length-2);
   }
 }

@@ -1,94 +1,53 @@
-    <!-- <div class="add-lists-page" style="flex-grow: 1;">
-        <div class="row add-new-lists">
-          <div class="col-md-4 col-sm-4 col-xs">
-            <label class="lists-label">List:</label>
-          </div>
-          <div class="col-md-4 col-sm-4 col-xs">
-            <input type="text" class="input-lists" [(ngModel)]="newList" (change)="isNameValid = true" [ngStyle]="{'border': isNameValid ? null : '1.5px solid red'}"/>
-            <div  class="erorr-lists">
-              <p *ngIf="!isNameValid" class="error-paragraph">Please enter list name.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-4 col-xs">
-            <button type="button" class="btn btn-light" (click)="addList()">Add</button>  
-          </div>
+<div class="row main-class">
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-4 col-sm-4 col-xs">
+        <label class="genre-label">Naziv liste</label>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs">
+        <input type="text" class="input-lists" [(ngModel)]="newList" (change)="isNameValid = true"
+          [ngStyle]="{'border': isNameValid ? null : '1.5px solid red'}" />
+        <div class="erorr-genre">
+          <p *ngIf="!isNameValid" class="error-paragraph">Unesite naziv</p>
         </div>
-      
-        <div class="col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-xs-4 offset-xs-4 lists-list">
-          <ul class="list-group"> 
-            <li (click)="openList(list.id)" class="list-group-item" [ngClass]="{selected: list.id == selectedListId}"  *ngFor="let list of lists">{{list.listName}}</li>
-          </ul>
-        </div>  
-      </div> -->
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs">
+        <button type="button" class="btn btn-light" (click)="addList()">Add</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <ul class="list-group">
+          <li (click)="openList(list.id)" class="list-group-item" [ngClass]="{selected: list.id == selectedListId}"
+            *ngFor="let list of lists">{{list.listName}}</li>
+        </ul>
+      </div>
+    </div>
 
+  </div>
 
-      
-      <!-- <div class="list-movies" >
-        <div class="margl">
-          <p class="nasl">Filmovi liste.</p>
-          <ul class="list-group-movies">
-              <li class="list-group-item" *ngFor="let movie of selectedListMovies">
-                  <p>{{movie.naziv}}</p>
-                  <p>{{movie.kratakOpis}}</p>
-              </li>
-          </ul>
-        </div>
-        <div class="margl">
-          
-          <div>
-            <p class="nasl">Svi filmovi.</p>
-            <input class="filmFilter" oninput="filterFilmovi()" type="text">
-          </div>
-          <div class="add-movie-button">
-            <button type="button" class="btn btn-light" (click)="addSelectedMovieToList()">Add movie to list</button>  
-          </div>
-          <ul class="list-group-movies">
-              <li (click)="selectMovie(movie.id)" class="list-group-item" [ngClass]="{selected: movie.id == selectedMovieId}" *ngFor="let movie of movies">
-                  <p>{{movie.naziv}}</p>
-                  <p>{{movie.kratakOpis}}</p>
-              </li>
-          </ul>
-        </div>
-      </div> -->
+  <div class="col-md-6">
 
-      <div class="row main-class">
-        <div class="col-md-6">
-          <div class="row">
-          <div class="col-md-4 col-sm-4 col-xs">
-            <label class="genre-label">Naziv liste</label>
-          </div>
-          <div class="col-md-4 col-sm-4 col-xs">
-            <input type="text" class="input-lists" [(ngModel)]="newList" (change)="isNameValid = true" [ngStyle]="{'border': isNameValid ? null : '1.5px solid red'}"/>
-            <div  class="erorr-genre">
-              <p *ngIf="!isNameValid" class="error-paragraph">Please enter the genre.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-4 col-xs">
-            <button type="button" class="btn btn-light" (click)="addList()">Add</button>  
-          </div>
-        </div>
+    <div class="movies-in-list">
+      <div *ngFor="let movie of selectedListMovies">
         <div class="row">
-          <div class="col-md-8 offset-md-2">
-            <ul class="list-group"> 
-              <li (click)="openList(list.id)" class="list-group-item" [ngClass]="{selected: list.id == selectedListId}"  *ngFor="let list of lists">{{list.listName}}</li>
+          <div class="col-md-10">
+            <ul class="list-group">
+              <li class="list-group-item" (click)="movie.isExpanded = !movie.isExpanded">
+                <b>{{movie.naziv}}</b>
+                <p>{{movie.kratakOpis}}</p>
+                <div class="additional-data-div" *ngIf="movie.isExpanded">
+                  <p class="additional-data">Reziser: {{movie.reziser}}</p>
+                  <p class="additional-data">Scenaristi: {{movie.scenaristi}}</p>
+                  <p class="additional-data">Producent: {{movie.producent}}</p>
+                  <p class="additional-data">Glumci: {{getAllActors(movie.id)}}</p>
+                  <p class="additional-data">Zanrovi: {{getAllGenres(movie.id)}}</p>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
-        
-        </div>
-      
-      <div class="col-md-6">
-          <!-- <ul>
-              <li  *ngFor="let movie of selectedListMovies">
-                  <p>{{movie.naziv}}</p>
-                  <p>{{movie.kratakOpis}}</p>
-              </li>
-          </ul> -->
-          <input class="filmFilter" oninput="filterFilmovi()" type="text">
-
-          <div *ngFor="let movie of selectedListMovies">
-            {{movie.naziv}}
-            {{movie.kratakOpis}}
-          </div>
       </div>
     </div>
+  </div>
+</div>

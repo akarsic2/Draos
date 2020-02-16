@@ -1,3 +1,40 @@
-<p>
-  add-movie-to-list works!
-</p>
+<div class="row main-class">
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <ul class="list-group">
+          <li (click)="openList(list.id)" class="list-group-item" [ngClass]="{selected: list.id == selectedListId}"
+            *ngFor="let list of lists">{{list.listName}}</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-6">
+
+    <div class="movies-in-list">
+      <div *ngFor="let movie of movies">
+        <div class="row">
+          <div class="col-md-10">
+            <ul class="list-group">
+              <li class="list-group-item" (click)="movie.isExpanded = !movie.isExpanded">
+                 <input class="check" id="checkbox" [(ngModel)] ="movie.isSelected" (click)="$event.stopPropagation()" type="checkbox" >
+                <b>{{movie.naziv}}</b>
+                <p>{{movie.kratakOpis}}</p>
+                <div class="additional-data-div" *ngIf="movie.isExpanded">
+                  <p class="additional-data">Reziser: {{movie.reziser}}</p>
+                  <p class="additional-data">Scenaristi: {{movie.scenaristi}}</p>
+                  <p class="additional-data">Producent: {{movie.producent}}</p>
+                  <p class="additional-data">Glumci: {{getAllActors(movie.id)}}</p>
+                  <p class="additional-data">Zanrovi: {{getAllGenres(movie.id)}}</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <button *ngIf="listId != 0 && movies.length > 0" class="btn btn-light" (click)="addMoviesToList()">Add </button>
+    </div>
+  </div>
+</div>
