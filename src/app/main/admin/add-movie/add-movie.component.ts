@@ -79,6 +79,10 @@ export class AddMovieComponent implements OnInit {
         // });
         
         this.toastr.success("Movie successfully added.", "New movie!");
+        this.movie = new Movie();
+        this.isSubmitTriggered = false;
+        this.selectedItemsActors = [];
+        this.selectedItemsGenres = [];
         
       }, error => {
         this.toastr.error("Something went wrong while trying to add movie.", "Error!");

@@ -61,8 +61,9 @@ export class MyListsComponent implements OnInit {
         latestId = element.id
     });
 
-
-    MockData.lists.push(new List(latestId+1, this.newList));
+    var newList =  new List(latestId+1, this.newList);
+    newList.movies = new Array();
+    MockData.lists.push(newList);
 
     // this._listService.addList(this.newList).subscribe(res => 
     //   {
