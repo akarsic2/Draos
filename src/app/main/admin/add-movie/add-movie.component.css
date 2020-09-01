@@ -45,11 +45,12 @@
 
 .form{
     margin-top: 20px;
+    background-color: white;
 }
 
 .form-group{
     margin:0;
-    height: 50px;
+    height: 60px;
 }
 
 .form-group.desc{
@@ -62,4 +63,26 @@
 
 :host /deep/ .cuppa-dropdown .selected-list .c-btn{
     border: 1px solid #ced4da !important;
+}
+
+:host /deep/ .pure-checkbox input[type=checkbox] + label:after {
+    border-color: black !important; 
+}
+
+:host /deep/ .selected-list .c-btn {
+    border: 1px solid #f36565; 
+}
+
+:host /deep/ .cuppa-dropdown .selected-list .c-list .c-token {
+    padding: 1px 20px 2px 2px;
+    margin-top: 0px;
+}
+  
+:host /deep/ .cuppa-dropdown .selected-list .c-list .c-token .c-remove svg {
+    fill: red; 
+}
+
+.multiselect {
+    height: auto;
+    min-height: 60px;
 }

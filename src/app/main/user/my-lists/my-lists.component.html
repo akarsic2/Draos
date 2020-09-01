@@ -5,7 +5,7 @@
         <label class="genre-label">Naziv liste</label>
       </div>
       <div class="col-md-4 col-sm-4 col-xs">
-        <input type="text" class="input-lists" [(ngModel)]="newList" (change)="isNameValid = true"
+        <input type="text" class="form-control input-lists" [(ngModel)]="newList" (change)="isNameValid = true"
           [ngStyle]="{'border': isNameValid ? null : '1.5px solid red'}" />
         <div class="erorr-genre">
           <p *ngIf="!isNameValid" class="error-paragraph">Unesite naziv</p>

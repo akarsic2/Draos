@@ -14,7 +14,7 @@
                         Name is required field.
                     </div>
                     <div *ngIf="fName.errors.minlength">
-                        Name must be at least 5 characters long.
+                        Min 5 characters is required.
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                         Description is required field.
                     </div>
                     <div *ngIf="fDescription.errors.minlength">
-                        Description must be at least 10 characters long.
+                        Min 10 characters is required.
                     </div>
                 </div>
             </div>
@@ -79,12 +79,12 @@
                 <input id="image" required type="text" class="form-control" #fImage="ngModel" [(ngModel)]="movie.slika" name="fImage" >
                 <div class="error-validation" *ngIf="isSubmitTriggered && fImage.errors?.required">
                     <div *ngIf="fImage.errors.required">
-                        Image URl is required field.
+                        Image URL is required field.
                     </div>
                 </div>
             </div>
         </div>
-        <div class="form-group required row">
+        <div class="form-group required row multiselect">
             <label class="col-md-4 label" for="name"></label>
             <div class="col-md-4 genres">
             <angular2-multiselect [data]="dropdownListGenres" [(ngModel)]="selectedItemsGenres" 
@@ -93,7 +93,7 @@
             </angular2-multiselect>
             </div>
         </div>
-        <div class="form-group required row">
+        <div class="form-group required row multiselect">
                 <label class="col-md-4 label" for="name"></label>
                 <div class="col-md-4 actors">
                 <angular2-multiselect [data]="dropdownListActors" [(ngModel)]="selectedItemsActors" 

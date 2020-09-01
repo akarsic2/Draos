@@ -21,6 +21,7 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { SearchByGenreComponent } from './main/user/search-by-genre/search-by-genre.component';
 import { SearchByActorComponent } from './main/user/search-by-actor/search-by-actor.component';
 import { AddMovieToListComponent } from './add-movie-to-list/add-movie-to-list.component';
+import { RatedMoviesComponent } from './main/user/rated-movies/rated-movies.component';
 
 
 
@@ -36,7 +37,8 @@ import { AddMovieToListComponent } from './add-movie-to-list/add-movie-to-list.c
     MyListsComponent,
     SearchByGenreComponent,
     SearchByActorComponent,
-    AddMovieToListComponent
+    AddMovieToListComponent,
+    RatedMoviesComponent
     ],
   imports: [
     BrowserModule,

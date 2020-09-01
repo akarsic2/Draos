@@ -1,0 +1,43 @@
+.main-class {
+    margin-top: 20px;
+}
+
+.list-group {
+    margin-top: 20px;
+}
+
+.list-group li {
+    cursor: pointer;
+}
+
+.selected {
+    background-color: #c3cfd7 !important;
+}
+
+.additional-data {
+    margin-bottom: 0px;
+}
+
+label {
+    font-weight: 500;
+}
+
+.list-group .list-group-item.cursor-default {
+    cursor: default;
+}
+
+.rate {
+    float: right;
+}
+
+.rate-movie-input {
+    width: 30%;
+    margin-top: 10px;
+}
+
+button {
+    background-color: #c3cfd7;
+    border: none;
+    margin-top: -4px;
+    margin-left: 15px;
+}

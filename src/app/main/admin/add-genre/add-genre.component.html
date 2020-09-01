@@ -4,7 +4,7 @@
       <label class="genre-label">Genre:</label>
     </div>
     <div class="col-md-4 col-sm-4 col-xs">
-      <input type="text" class="input-genre" [(ngModel)]="newGenre" (change)="isNameValid = true" [ngStyle]="{'border': isNameValid ? null : '1.5px solid red'}"/>
+      <input type="text" class="form-control input-genre" [(ngModel)]="newGenre" (change)="isNameValid = true" [ngStyle]="{'border': isNameValid ? null : '1.5px solid red'}"/>
       <div  class="erorr-genre">
         <p *ngIf="!isNameValid" class="error-paragraph">Please enter the genre.</p>
       </div>

@@ -4,13 +4,13 @@
         <label class="actor-label">Actor:</label>
       </div>
       <div class="col-md-2 col-sm-2 col-xs-2">
-        <input type="text" class="input input-actor-first-name" [(ngModel)]="newActor.name" placeholder="First name" (change)="isNameValid = true" [ngStyle]="{'border': isNameValid ? null : '1.5px solid red'}"/>
+        <input type="text" class="form-control input input-actor-first-name" [(ngModel)]="newActor.name" placeholder="First name" (change)="isNameValid = true" [ngStyle]="{'border': isNameValid ? null : '1.5px solid red'}"/>
         <div class="error-actor">
           <p *ngIf="!isNameValid" class="error-paragraph">Please enter first name.</p>
         </div>
       </div>
       <div class="col-md-2 col-sm-2 col-xs-2">
-        <input type="text" class="input input-actor-last-name" [(ngModel)]="newActor.lastName" placeholder="Last name" (change)="isLastNameValid = true" [ngStyle]="{'border': isLastNameValid ? null : '1.5px solid red'}"/>
+        <input type="text" class="form-control input input-actor-last-name" [(ngModel)]="newActor.lastName" placeholder="Last name" (change)="isLastNameValid = true" [ngStyle]="{'border': isLastNameValid ? null : '1.5px solid red'}"/>
         <div class="error-actor">
           <p *ngIf="!isLastNameValid" class="error-paragraph">Please enter last name.</p>
         </div>

@@ -24,14 +24,14 @@ export class MockData{
                         {id:3, name: "Leonardo", lastName:"DiCaprio"},
                         {id:4, name: "Brad", lastName:"Pitt"},
                         {id:5, name: "Angelina", lastName:"Jolie"},
-                        {id:5, name: "Julia", lastName:"Roberts"},
-                        {id:6, name: "Sandra", lastName:"Bullock"},
-                        {id:7, name: "Anna", lastName:"Hathaway"}
+                        {id:6, name: "Julia", lastName:"Roberts"},
+                        {id:7, name: "Sandra", lastName:"Bullock"},
+                        {id:8, name: "Anna", lastName:"Hathaway"}
                     ];
 
     public static movies: Movie[] = [
-                        {id:1, naziv:"The Godfather", kratakOpis:"Kum (eng. The Godfather) je kriminalistička drama Francisa Forda Coppole temeljena na istoimenom romanu Maria Puza.", reziser:"Reziser", scenaristi:"Scenaristi", producent:"Producent", trailer:"https://www.youtube.com/watch?v=sY1S34973zA", slika:"slika", zanrovi: [MockData.genres[0], MockData.genres[1]], glumci: [MockData.actors[0], MockData.actors[1]], isExpanded:false, isSelected: false},
-                        {id:2, naziv:"Schindler's List", kratakOpis:"Schindlerova lista (eng. Schindler's List) je američka epska drama iz 1993. godine koju je producirao i režirao Steven Spielberg.", reziser:"Reziser", scenaristi:"Scenaristi", producent:"Producent", trailer:"https://www.youtube.com/watch?v=gG22XNhtnoY", slika:"slika", zanrovi: [MockData.genres[1], MockData.genres[2]], glumci: [MockData.actors[1], MockData.actors[2]], isExpanded:false, isSelected: false}
+                        {id:1, naziv:"The Godfather", kratakOpis:"Kum (eng. The Godfather) je kriminalistička drama Francisa Forda Coppole temeljena na istoimenom romanu Maria Puza.", reziser:"Reziser", scenaristi:"Scenaristi", producent:"Producent", trailer:"https://www.youtube.com/watch?v=sY1S34973zA", slika:"slika", zanrovi: [MockData.genres[0], MockData.genres[1]], glumci: [MockData.actors[0], MockData.actors[1]], isExpanded:false, isSelected: false, ocjene: [5,4]},
+                        {id:2, naziv:"Schindler's List", kratakOpis:"Schindlerova lista (eng. Schindler's List) je američka epska drama iz 1993. godine koju je producirao i režirao Steven Spielberg.", reziser:"Reziser", scenaristi:"Scenaristi", producent:"Producent", trailer:"https://www.youtube.com/watch?v=gG22XNhtnoY", slika:"slika", zanrovi: [MockData.genres[1], MockData.genres[2]], glumci: [MockData.actors[1], MockData.actors[2]], isExpanded:false, isSelected: false, ocjene: [5,5]}
                     ];
 
     public static lists: List[] = [

@@ -34,7 +34,7 @@ export class AddGenreComponent implements OnInit {
 
     this._genreService.addGenre(this.newGenre).subscribe(res => 
       {
-        this.genres.push(new Genre(res.id, this.newGenre));
+        this.genres.push(new Genre(this.genres.length + 1, this.newGenre));
         this.toastr.success("Genre successfully added.", "New genre!");
         this.newGenre = '';
       }, error =>{

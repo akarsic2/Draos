@@ -42,7 +42,7 @@ export class AddActorComponent implements OnInit {
       this._actorService.addActor(this.newActor).subscribe(res => 
         {
           var actorDB = new Actor();
-          actorDB.id = res.id;
+          actorDB.id = this.actors.length + 1;
           actorDB.name = this.newActor.name;
           actorDB.lastName = this.newActor.lastName
           this.actors.push(actorDB);

@@ -101,3 +101,7 @@ ul{
 .movies-in-list{
     padding-top: 37px;
 }
+
+.form-control {
+    margin-top: 0px;
+}
