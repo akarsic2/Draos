@@ -1,5 +1,5 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { UserBasic } from '../models/UserBasic.model';
+import { UserBasic } from '../models/userBasic.model';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user.model';
 import { MockData } from '../mock.model';

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
-import { UserBasic } from '../models/UserBasic.model';
+import { UserBasic } from '../models/userBasic.model';
 import { CookieService } from 'ngx-cookie-service';
 import { MockData } from '../mock.model';
 
