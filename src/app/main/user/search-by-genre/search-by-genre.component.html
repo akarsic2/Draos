@@ -15,9 +15,32 @@
   
     <div class="col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-xs-4 offset-xs-4 genre-list">
       <ul class="list-group">
-        <li class="list-group-item" *ngFor="let movie of movies">{{movie.naziv}}</li>
+        <li class="list-group-item" *ngFor="let movie of movies">
+          <label class="movie-name">{{movie.naziv}}</label>
+          <button class="btn btn-light add-to-list" (click)="open(content, movie.id)">Add to list</button>
+        </li>
       </ul>
     </div>
-  
-  
   </div>
+
+  
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add movie to list</h4>
+      <button type="button" class="close-modal" (click)="modal.dismiss('Cross click'); closeModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <ul class="list-group">
+        <li (click)="selectedListId = list.id" class="list-group-item item-list" [ngClass]="{selected: list.id == selectedListId}"
+          *ngFor="let list of getListsForMovie()">
+          {{list.listName}}
+          
+        </li>
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click'); saveMovieToList()">Save</button>
+    </div>
+  </ng-template>

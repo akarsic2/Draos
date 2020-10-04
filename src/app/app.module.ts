@@ -22,7 +22,8 @@ import { SearchByGenreComponent } from './main/user/search-by-genre/search-by-ge
 import { SearchByActorComponent } from './main/user/search-by-actor/search-by-actor.component';
 import { AddMovieToListComponent } from './add-movie-to-list/add-movie-to-list.component';
 import { RatedMoviesComponent } from './main/user/rated-movies/rated-movies.component';
-
+import { SearchPipe } from './search.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { RatedMoviesComponent } from './main/user/rated-movies/rated-movies.comp
     SearchByGenreComponent,
     SearchByActorComponent,
     AddMovieToListComponent,
-    RatedMoviesComponent
+    RatedMoviesComponent,
+    SearchPipe
     ],
   imports: [
     BrowserModule,
@@ -49,9 +51,11 @@ import { RatedMoviesComponent } from './main/user/rated-movies/rated-movies.comp
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    AngularMultiSelectModule
+    AngularMultiSelectModule,
+    NgbModule
   ],
   providers: [CookieService ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [SearchByActorComponent]
 })
 export class AppModule { }

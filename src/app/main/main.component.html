@@ -1,7 +1,7 @@
 <div class="whole-screen">
     <!-- <img class ="cover-img" src="http://recordhead.biz/wp-content/uploads/2016/08/movie-banner.png"> -->
   <div class="col-md-8 offset-md-2">
-      <img class ="cover-img" src="http://recordhead.biz/wp-content/uploads/2016/08/movie-banner.png" >
+      <img class ="cover-img" src="assets/images/movie-banner.png" >
   </div>  
 
   <div class="main-screen col-md-8 offset-md-2 ">
@@ -14,13 +14,13 @@
       <div class="collapse navbar-collapse" >
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" routerLink="add-movie">Add movie</a>
+            <a class="nav-link" routerLink="add-movie" [routerLinkActive]="['active']">Add movie</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="add-actor">Add actors</a>
+            <a class="nav-link" routerLink="add-actor" [routerLinkActive]="['active']">Add actors</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="add-genre">Add genres</a>
+            <a class="nav-link" routerLink="add-genre" [routerLinkActive]="['active']">Add genres</a>
           </li>
         </ul>
         <a class="nav-link" (click)="logOut()" >Log out</a>
@@ -35,22 +35,22 @@
       <div class="collapse navbar-collapse" >
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" routerLink="my-lists">My lists</a>
+            <a class="nav-link" routerLink="my-lists" [routerLinkActive]="['active']">My lists</a>
           </li>
           <!-- <li class="nav-item">
             <a class="nav-link" href="#">Rated movies</a>
           </li> -->
           <li class="nav-item">
-            <a class="nav-link" routerLink="search-by-actor">Search by actor</a>
+            <a class="nav-link" routerLink="search-by-actor" [routerLinkActive]="['active']">Search by actor</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="search-by-genre">Search by genre</a>
+            <a class="nav-link" routerLink="search-by-genre" [routerLinkActive]="['active']">Search by genre</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="add-movie-to-list">Add movie to list</a>
+            <a class="nav-link" routerLink="add-movie-to-list" [routerLinkActive]="['active']">Add movie to list</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="rated-movies">Rated movies</a>
+            <a class="nav-link" routerLink="rated-movies" [routerLinkActive]="['active']">Rated movies</a>
           </li>
         </ul>
         <a class="nav-link" (click)="logOut()">Log out</a>

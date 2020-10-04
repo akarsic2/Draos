@@ -3,6 +3,8 @@ import { List } from '../models/list.model';
 import { MyListsService } from '../main/user/my-lists/my-lists.service';
 import { MockData } from '../mock.model';
 import { Movie } from '../models/movie.model';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-movie-to-list',
@@ -15,6 +17,7 @@ export class AddMovieToListComponent implements OnInit {
   lists: Array<List> = new Array();
   movies: Array<Movie> = new Array();
   listId: number = 0;
+  searchValue = '';
 
   constructor(private _listService: MyListsService) { }
 

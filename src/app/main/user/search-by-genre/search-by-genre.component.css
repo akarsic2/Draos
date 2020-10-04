@@ -41,3 +41,32 @@
 .genre-list{
     margin-top: 20px;
 }
+
+
+.movie-name {
+    float: left;
+    padding-top: 5px;
+}
+
+.add-to-list {
+    float: right;
+    padding: 4px 8px 4px 8px;
+}
+
+.selected {
+    background-color: #c3cfd7 !important;
+}
+
+.close-modal {
+    background-color: transparent;
+    border: none;
+}
+
+.close-modal span {
+    font-size: 20px;
+}
+
+.item-list {
+    width: 80%;
+    margin-left: 10%;
+}

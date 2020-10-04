@@ -10,6 +10,7 @@ export class Movie {
     producent: string;
     trailer: string;
     slika: string;
+    trajanje: string;
 
     zanrovi: Genre[];
     glumci: Actor[];

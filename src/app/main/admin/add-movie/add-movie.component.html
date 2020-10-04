@@ -74,6 +74,17 @@
             </div>
         </div>
         <div class="form-group required row">
+            <label class="col-md-4 label" for="name">Duration:</label>
+            <div class="col-md-4">
+                <input id="duration" required type="text" class="form-control" #fDuration="ngModel" [(ngModel)]="movie.trajanje" name="fDuration" >
+                <div class="error-validation" *ngIf="isSubmitTriggered && fDuration.errors?.required">
+                    <div *ngIf="fDuration.errors?.required">
+                        Duration is required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group required row">
             <label class="col-md-4 label" for="name">Image URL:</label>
             <div class="col-md-4">
                 <input id="image" required type="text" class="form-control" #fImage="ngModel" [(ngModel)]="movie.slika" name="fImage" >

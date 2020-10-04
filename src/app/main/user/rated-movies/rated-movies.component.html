@@ -24,11 +24,11 @@
                 <b>{{selectedMovie.naziv}}</b>
                 <p>{{selectedMovie.kratakOpis}}</p>
                 <div class="additional-data-div" >
-                  <p class="additional-data"><label>Reziser:</label> {{selectedMovie.reziser}}</p>
-                  <p class="additional-data"><label>Scenaristi:</label> {{selectedMovie.scenaristi}}</p>
-                  <p class="additional-data"><label>Producent:</label> {{selectedMovie.producent}}</p>
-                  <p class="additional-data"><label>Glumci:</label> {{getAllActors(selectedMovie)}}</p>
-                  <p class="additional-data"><label>Zanrovi:</label> {{getAllGenres(selectedMovie)}}</p>
+                  <p class="additional-data"><label>Directed by:</label> {{selectedMovie.reziser}}</p>
+                  <p class="additional-data"><label>Produced by:</label> {{selectedMovie.scenaristi}}</p>
+                  <p class="additional-data"><label>Duration:</label> {{selectedMovie.trajanje}}</p>
+                  <p class="additional-data"><label>Actors:</label> {{getAllActors(selectedMovie)}}</p>
+                  <p class="additional-data"><label>Genres:</label> {{getAllGenres(selectedMovie)}}</p>
                 </div>
                 <input *ngIf="!isMovieRated(selectedMovie.id)" class="rate-movie-input" type="number" min="1" max="5" [(ngModel)]="rateNum" (keyup)="checkValue($event)">
                 <button *ngIf="!isMovieRated(selectedMovie.id)" class="btn btn-light" (click)="rateMovie()">Rate movie</button>

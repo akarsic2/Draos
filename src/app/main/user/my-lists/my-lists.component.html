@@ -2,7 +2,7 @@
   <div class="col-md-6">
     <div class="row">
       <div class="col-md-4 col-sm-4 col-xs">
-        <label class="genre-label">Naziv liste</label>
+        <label class="genre-label">List name</label>
       </div>
       <div class="col-md-4 col-sm-4 col-xs">
         <input type="text" class="form-control input-lists" [(ngModel)]="newList" (change)="isNameValid = true"
@@ -37,11 +37,11 @@
                 <b>{{movie.naziv}}</b>
                 <p>{{movie.kratakOpis}}</p>
                 <div class="additional-data-div" *ngIf="movie.isExpanded">
-                  <p class="additional-data">Reziser: {{movie.reziser}}</p>
-                  <p class="additional-data">Scenaristi: {{movie.scenaristi}}</p>
-                  <p class="additional-data">Producent: {{movie.producent}}</p>
-                  <p class="additional-data">Glumci: {{getAllActors(movie.id)}}</p>
-                  <p class="additional-data">Zanrovi: {{getAllGenres(movie.id)}}</p>
+                  <p class="additional-data">Directed by: {{movie.reziser}}</p>
+                  <p class="additional-data">Produced by: {{movie.producent}}</p>
+                  <p class="additional-data">Duration: {{movie.trajanje}}</p>
+                  <p class="additional-data">Actors: {{getAllActors(movie.id)}}</p>
+                  <p class="additional-data">Genres: {{getAllGenres(movie.id)}}</p>
                 </div>
               </li>
             </ul>

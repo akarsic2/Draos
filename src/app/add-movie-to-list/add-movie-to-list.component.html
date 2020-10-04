@@ -12,9 +12,12 @@
   </div>
 
   <div class="col-md-6">
-
+    <div *ngIf="movies.length > 0" class="search-area">
+      <input placeholder="Find movie" class="form-control" [(ngModel)]="searchValue">
+      <i class="fa fa-search"></i>
+    </div>
     <div class="movies-in-list">
-      <div *ngFor="let movie of movies">
+      <div *ngFor="let movie of movies | search: searchValue">
         <div class="row">
           <div class="col-md-10">
             <ul class="list-group">
@@ -34,7 +37,7 @@
           </div>
         </div>
       </div>
-      <button *ngIf="listId != 0 && movies.length > 0" class="btn btn-light" (click)="addMoviesToList()">Add </button>
+      <button *ngIf="listId != 0 && movies.length > 0  && (movies | search: searchValue).length > 0" class="btn btn-light" (click)="addMoviesToList()">Add </button>
     </div>
   </div>
 </div>

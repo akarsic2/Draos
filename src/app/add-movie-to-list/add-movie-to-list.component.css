@@ -106,3 +106,14 @@ ul{
 .check{
     float: right;
 }
+
+.search-area {
+    margin-top: 20px;
+    width: 50%;
+}
+
+.fa-search {
+    float: right;
+    margin-top: -25px;
+    margin-right: 10px;
+}

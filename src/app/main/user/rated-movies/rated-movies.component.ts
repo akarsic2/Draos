@@ -25,7 +25,7 @@ export class RatedMoviesComponent implements OnInit {
   }
 
   rate(movie: Movie) {
-    if (!movie.ocjene.length) {
+    if (!movie || !movie.ocjene || !movie.ocjene.length) {
       return '';
     }
 

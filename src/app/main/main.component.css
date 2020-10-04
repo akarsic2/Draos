@@ -54,3 +54,8 @@
 .admin-navbar, .user-navbar{
     margin-top:-140px;
 }
+
+a.nav-link.active {
+    background-color: #cdd9e3;
+    border-radius: 5px;
+}
